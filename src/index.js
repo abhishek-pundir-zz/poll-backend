@@ -4,6 +4,7 @@ const Query = require("./resolvers/Query");
 const Mutation = require("./resolvers/Mutation");
 const User = require("./resolvers/User");
 const Poll = require("./resolvers/Poll");
+const Option = require("./resolvers/Option");
 const typeDefs = `./src/schema.graphql`;
 
 const prisma = new PrismaClient();
@@ -13,6 +14,7 @@ const resolvers = {
 	Mutation,
 	User,
 	Poll,
+	Option,
 };
 
 const server = new GraphQLServer({

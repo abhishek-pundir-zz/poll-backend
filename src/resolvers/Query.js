@@ -8,9 +8,6 @@ async function poll(parent, args, context, info) {
 		where: {
 			id: args.id,
 		},
-		include: {
-			options: true,
-		},
 	});
 
 	return result;
