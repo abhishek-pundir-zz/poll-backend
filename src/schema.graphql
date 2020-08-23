@@ -1,0 +1,44 @@
+type Query {
+	poll(id: Int!): Poll
+	info: String!
+	feed: [Link!]!
+	user: [User!]!
+}
+
+type Mutation {
+	post(url: String!, description: String!): Link!
+	user(mail: String!, name: String): User!
+	poll(question: String!, options: [PollOption!]!, userId: Int!): Poll
+	updateUser(id: ID!): User!
+}
+
+input PollOption {
+	value: Int!
+	description: String!
+}
+
+type Poll {
+	id: ID!
+	question: String!
+	options: [Option!]!
+	author: User!
+}
+
+type User {
+	id: ID!
+	mail: String!
+	name: String
+	polls: [Poll!]
+}
+
+type Option {
+	value: Int!
+	description: String!
+	poll: Poll
+}
+
+type Link {
+	id: ID!
+	description: String!
+	url: String!
+}
