@@ -1,7 +1,7 @@
 # poll-backend
 A poll app using GraphQL and Prisma
 
-##How To Setup Project Locally
+## How To Setup Project Locally
 
 - Clone the project
 - run command `npm install`
