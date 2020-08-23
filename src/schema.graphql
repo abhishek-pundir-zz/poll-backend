@@ -10,6 +10,8 @@ type Mutation {
 	user(mail: String!, name: String): User!
 	poll(question: String!, options: [PollOption!]!, userId: Int!): Poll
 	updateUser(id: ID!): User!
+	signup(mail: String!, password: String!, name: String!): AuthPayload
+	login(mail: String!, password: String!): AuthPayload
 }
 
 input PollOption {
@@ -41,4 +43,9 @@ type Link {
 	id: ID!
 	description: String!
 	url: String!
+}
+
+type AuthPayload {
+	token: String
+	user: User
 }
