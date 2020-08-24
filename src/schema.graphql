@@ -8,10 +8,11 @@ type Query {
 type Mutation {
 	post(url: String!, description: String!): Link!
 	user(mail: String!, name: String): User!
-	poll(question: String!, options: [PollOption!]!, userId: Int!): Poll
+	poll(question: String!, options: [PollOption!]!): Poll
 	updateUser(id: ID!): User!
 	signup(mail: String!, password: String!, name: String!): AuthPayload
 	login(mail: String!, password: String!): AuthPayload
+	vote(pollId: Int!, optionId: Int!): ID
 }
 
 input PollOption {
@@ -24,6 +25,7 @@ type Poll {
 	question: String!
 	options: [Option!]!
 	author: User!
+	votes: [Vote!]!
 }
 
 type User {
@@ -34,6 +36,7 @@ type User {
 }
 
 type Option {
+	id: ID!
 	value: Int!
 	description: String!
 	poll: Poll
@@ -48,4 +51,10 @@ type Link {
 type AuthPayload {
 	token: String
 	user: User
+}
+
+type Vote {
+	id: ID!
+	poll: Poll
+	option: Option
 }

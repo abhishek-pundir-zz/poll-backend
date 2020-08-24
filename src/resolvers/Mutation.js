@@ -69,9 +69,21 @@ async function login(parent, args, context, info) {
 	};
 }
 
+async function vote(parent, args, context, info) {
+	const newVote = await context.prisma.vote.create({
+		data: {
+			poll: { connect: { id: args.pollId } },
+			option: { connect: { id: args.optionId } },
+		},
+	});
+
+	return newVote.id;
+}
+
 module.exports = {
 	user,
 	poll,
 	signup,
 	login,
+	vote,
 };
