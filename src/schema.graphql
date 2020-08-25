@@ -15,6 +15,10 @@ type Mutation {
 	vote(pollId: Int!, optionId: Int!): ID
 }
 
+type Subscription {
+	newVote: Vote
+}
+
 input PollOption {
 	value: Int!
 	description: String!
@@ -40,6 +44,7 @@ type Option {
 	value: Int!
 	description: String!
 	poll: Poll
+	votes: [Vote!]!
 }
 
 type Link {

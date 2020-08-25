@@ -76,6 +76,7 @@ async function vote(parent, args, context, info) {
 			option: { connect: { id: args.optionId } },
 		},
 	});
+	context.pubsub.publish("NEW_VOTE", newVote);
 
 	return newVote.id;
 }
