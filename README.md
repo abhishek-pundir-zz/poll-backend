@@ -1,5 +1,5 @@
 # poll-backend
-A poll app using GraphQL and Prisma
+A poll 📊 app using GraphQL and Prisma
 
 ## How To Setup Project Locally
 
